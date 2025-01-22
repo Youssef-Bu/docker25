@@ -1,17 +1,19 @@
+version: "3.8"
+
 services:
   servicea:
     build:
-      context: ./servicea
+      context: ./serviceA
+    volumes:
+      - serviceA-data:/usr/src/app
     ports:
       - "4000:4000"
-    volumes:
-      - shared-data:/usr/src/app/shared
 
   sidecar:
     build:
       context: ./sidecar
     volumes:
-      - shared-data:/usr/src/app/shared
+      - serviceA-data:/usr/src/app
 
 volumes:
-  shared-data:
+  serviceA-data:

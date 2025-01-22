@@ -1,9 +1,12 @@
 FROM alpine
 
-# Installer git
+# Installer Git
 RUN apk add --no-cache git
 
 WORKDIR /usr/src/app
 
-# pull toutes les 10 secondes
-CMD while true; do git pull origin main; sleep 10; done
+COPY pull.sh .
+
+RUN chmod +x pull.sh
+
+CMD ["./pull.sh"]

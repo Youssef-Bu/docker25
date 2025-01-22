@@ -1,14 +1,13 @@
 FROM node:18-alpine
 
+# Définir le répertoire de travail
 WORKDIR /usr/src/app
 
-COPY package.json ./
+COPY package*.json ./
 RUN npm install
 
-COPY server.js ./
+COPY . .
 
-# Exposer le port utilisé par le service
 EXPOSE 4000
 
-# Commande pour démarrer l'application
 CMD ["npm", "start"]
