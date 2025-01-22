@@ -1,0 +1,17 @@
+services:
+  servicea:
+    build:
+      context: ./servicea
+    ports:
+      - "4000:4000"
+    volumes:
+      - shared-data:/usr/src/app/shared
+
+  sidecar:
+    build:
+      context: ./sidecar
+    volumes:
+      - shared-data:/usr/src/app/shared
+
+volumes:
+  shared-data:
