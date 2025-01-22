@@ -40,4 +40,4 @@ jobs:
           context: ./serviceA
           file: ./serviceA/Dockerfile
           push: true
-          tags: Youssef-Bu/docker25:latest
+          tags: yousssefb/docker25:latest
